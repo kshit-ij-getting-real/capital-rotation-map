@@ -1,0 +1,37 @@
+ticker,name,sector,weight
+RELIANCE.NS,Reliance Industries,Energy,1
+ONGC.NS,ONGC,Energy,1
+COALINDIA.NS,Coal India,Energy,1
+HDFCBANK.NS,HDFC Bank,Financials,1
+ICICIBANK.NS,ICICI Bank,Financials,1
+SBIN.NS,State Bank of India,Financials,1
+KOTAKBANK.NS,Kotak Mahindra Bank,Financials,1
+INFY.NS,Infosys,Information Technology,1
+TCS.NS,TCS,Information Technology,1
+WIPRO.NS,Wipro,Information Technology,1
+HCLTECH.NS,HCL Technologies,Information Technology,1
+SUNPHARMA.NS,Sun Pharma,Pharma,1
+DRREDDY.NS,Dr Reddy's,Pharma,1
+CIPLA.NS,Cipla,Pharma,1
+DIVISLAB.NS,Divis Labs,Pharma,1
+ITC.NS,ITC,FMCG,1
+HINDUNILVR.NS,Hindustan Unilever,FMCG,1
+NESTLEIND.NS,Nestle India,FMCG,1
+TATACONSUM.NS,Tata Consumer,FMCG,1
+MARUTI.NS,Maruti Suzuki,Auto,1
+TATAMOTORS.NS,Tata Motors,Auto,1
+M&M.NS,Mahindra & Mahindra,Auto,1
+BAJAJ-AUTO.NS,Bajaj Auto,Auto,1
+LT.NS,Larsen & Toubro,Infrastructure,1
+ULTRACEMCO.NS,UltraTech Cement,Infrastructure,1
+ADANIPORTS.NS,Adani Ports,Infrastructure,1
+POWERGRID.NS,Power Grid,Infrastructure,1
+TATASTEEL.NS,Tata Steel,Metals,1
+HINDALCO.NS,Hindalco,Metals,1
+JSWSTEEL.NS,JSW Steel,Metals,1
+VEDL.NS,Vedanta,Metals,1
+BHARTIARTL.NS,Bharti Airtel,Telecom,1
+IDEA.NS,Vodafone Idea,Telecom,1
+JIOFIN.NS,Jio Financial,Financials,1
+NTPC.NS,NTPC,Energy,1
+AXISBANK.NS,Axis Bank,Financials,1

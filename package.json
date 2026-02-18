@@ -1,0 +1,11 @@
+{
+  "name": "capital-rotation-map",
+  "private": true,
+  "packageManager": "pnpm@9.12.1",
+  "scripts": {
+    "dev": "pnpm --filter @apps/global dev & pnpm --filter @apps/india dev",
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "lint": "pnpm -r lint"
+  }
+}

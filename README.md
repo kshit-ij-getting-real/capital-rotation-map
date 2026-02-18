@@ -31,7 +31,8 @@ Both apps use server-side data pipelines, resilient fallbacks, cache layers, sch
 │       │   ├── layout.tsx
 │       │   └── page.tsx
 │       ├── components/treemap-client.tsx
-│       ├── data/india-sectors.csv
+│       ├── data/india_universe.csv
+│       ├── data/india_etf_universe.csv
 │       ├── scripts/update-constituents.mjs
 │       ├── lib/data-sources/*
 │       └── vercel.json
@@ -83,10 +84,8 @@ Set these per app in Vercel Project Settings → Environment Variables.
 
 ### Data provider
 
-- `DATA_PROVIDER=yahoo` (default expected)
-- `DATA_PROVIDER=mock` (safe fallback mode)
-- `DATA_PROVIDER=stooq` or `twelve` (reserved extension points)
-- `TWELVE_DATA_API_KEY` (optional, only needed if you extend Twelve Data provider)
+- `TWELVE_DATA_API_KEY` (optional, enables preferred real-time provider via Twelve Data).
+- Without `TWELVE_DATA_API_KEY`, India app automatically uses fallback Yahoo latest prices and shows a delayed-data badge in UI.
 
 ### Optional India universe updater
 
@@ -124,8 +123,8 @@ Cron schedules are already defined in each app's `vercel.json`:
   - `*/15 13-20 * * 1-5` (US market window, UTC)
   - `0 */6 * * *` (off-hours refresh)
 - `apps/india/vercel.json`
-  - `*/15 4-10 * * 1-5` (India market window, UTC)
-  - `0 */8 * * *` (off-hours refresh)
+  - `*/15 3-10 * * 1-5` (polled every 15 min; API enforces 09:00–15:45 IST market window)
+  - `0 */6 * * *` (off-hours refresh every 6 hours)
 
 Both hit `/api/refresh` and require header `Authorization: Bearer $CRON_SECRET`.
 
@@ -137,7 +136,7 @@ Both hit `/api/refresh` and require header `Authorization: Bearer $CRON_SECRET`.
 
 Query params:
 
-- `timeframe`: `1D | 1W | 1M`
+- `timeframe`: `1D | 1W | 1M | 3M | YTD`
 - `size`: `weight | marketCap | tradedValue`
 - `normalize`: `true | false`
 
@@ -147,6 +146,7 @@ Returns normalized treemap JSON (groups + leaf nodes with returns/sizes/meta).
 
 - Requires `Authorization: Bearer $CRON_SECRET`
 - Refreshes data pipeline and repopulates cache.
+- India app writes treemap snapshots to Upstash KV and UI reads from KV snapshots only.
 - India app automatically skips refresh outside market hours unless `?force=1`.
 
 ---
@@ -156,12 +156,13 @@ Returns normalized treemap JSON (groups + leaf nodes with returns/sizes/meta).
 ### Add tickers
 
 - Global ETFs: edit `apps/global/data/etfs.json`
-- India stocks: edit `apps/india/data/india-sectors.csv`
+- India ETF universe: edit `apps/india/data/india_etf_universe.csv`
+- India sector→stock universe: edit `apps/india/data/india_universe.csv`
 
 ### Change grouping
 
 - Global grouping key is `region` and optional `bucket`
-- India grouping key is `sector`
+- India grouping key is `sector` across ETF and stock modes
 
 ### Change weight method
 

@@ -39,3 +39,18 @@ input, select, button {
   padding: 8px;
 }
 .small { color: var(--muted); font-size: 12px; }
+.timestamp { font-size: 14px; margin-top: -6px; }
+.badge {
+  display: inline-block;
+  margin: 0 0 10px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid #92400e;
+  color: #fde68a;
+  background: rgba(146, 64, 14, 0.3);
+  font-size: 12px;
+}
+.table-wrap { max-height: 72vh; overflow: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 12px; }
+th, td { padding: 8px; border-bottom: 1px solid #1f2a44; text-align: left; white-space: nowrap; }
+th { position: sticky; top: 0; background: #10192d; }

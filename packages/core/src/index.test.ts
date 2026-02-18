@@ -19,6 +19,20 @@ describe('computeReturn', () => {
     expect(computeReturn(history, '1W')).toBeCloseTo(8, 4);
   });
 
+  it('calculates quarterly return by lookback with short history fallback', () => {
+    expect(computeReturn(history, '3M')).toBeCloseTo(8, 4);
+  });
+
+  it('calculates ytd return from first in-year point', () => {
+    const year = new Date().getUTCFullYear();
+    const ytdHistory = [
+      { close: 90, date: `${year - 1}-12-29T00:00:00.000Z` },
+      { close: 100, date: `${year}-01-02T00:00:00.000Z` },
+      { close: 110, date: `${year}-03-01T00:00:00.000Z` },
+    ];
+    expect(computeReturn(ytdHistory, 'YTD')).toBeCloseTo(10, 4);
+  });
+
   it('returns 0 for invalid base', () => {
     expect(computeReturn([{ close: 0 }], '1M')).toBe(0);
   });

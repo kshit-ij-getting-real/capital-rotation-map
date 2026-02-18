@@ -7,7 +7,7 @@ import type { TreemapResponse } from '@/lib/types';
 const ReactECharts = dynamic(() => import('echarts-for-react'), { ssr: false });
 
 export function TreemapClient({ initialData }: { initialData: TreemapResponse }) {
-  const [timeframe, setTimeframe] = useState<'1D' | '1W' | '1M'>(initialData.timeframe);
+  const [timeframe, setTimeframe] = useState<'1D' | '1W' | '1M'>(['1D','1W','1M'].includes(initialData.timeframe) ? (initialData.timeframe as '1D'|'1W'|'1M') : '1D');
   const [sizeMetric, setSizeMetric] = useState<'weight' | 'marketCap' | 'tradedValue'>('weight');
   const [search, setSearch] = useState('');
   const [showLabels, setShowLabels] = useState(true);

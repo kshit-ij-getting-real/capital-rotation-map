@@ -1,0 +1,20 @@
+ticker,name,sector,weight
+NIFTYBEES.NS,Nippon India ETF Nifty 50,Benchmarks,1
+JUNIORBEES.NS,Nippon India ETF Nifty Next 50,Benchmarks,1
+NIFTY500.NS,Motilal Oswal Nifty 500 ETF,Benchmarks,1
+MID150BEES.NS,Nippon India ETF Nifty Midcap 150,Market Caps,1
+SMALLCAP250.NS,Motilal Oswal Nifty Smallcap 250 ETF,Market Caps,1
+BANKBEES.NS,Nippon India ETF Bank BeES,Sectors,1
+PSUBNKBEES.NS,Nippon India ETF PSU Bank BeES,Sectors,1
+ITBEES.NS,Nippon India ETF Nifty IT,Sectors,1
+PHARMABEES.NS,Nippon India ETF Nifty Pharma,Sectors,1
+AUTOBEES.NS,Nippon India ETF Nifty Auto,Sectors,1
+METALBEES.NS,Nippon India ETF Nifty Metal,Sectors,1
+INFRABEES.NS,Nippon India ETF Infra BeES,Sectors,1
+CONSUMBEES.NS,Nippon India ETF Nifty Consumption,Thematic,1
+ENERGYETF.NS,ICICI Prudential Nifty Energy ETF,Thematic,1
+EVETF.NS,Mirae Asset Nifty EV and New Age Automotive ETF,Thematic,1
+DEFENCEETF.NS,HDFC Nifty India Defence ETF,Thematic,1
+TOURISMETF.NS,Aditya Birla Sun Life Nifty India Tourism ETF,Thematic,1
+GOLDBEES.NS,Nippon India ETF Gold BeES,Safe Havens,1
+SILVERBEES.NS,Nippon India ETF Silver BeES,Safe Havens,1

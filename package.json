@@ -4,8 +4,9 @@
   "packageManager": "pnpm@9.12.1",
   "scripts": {
     "dev": "pnpm --filter @apps/global dev & pnpm --filter @apps/india dev",
-    "build": "pnpm -r build",
+    "build": "pnpm -r --workspace-concurrency=1 build",
     "test": "pnpm -r test",
-    "lint": "pnpm -r lint"
+    "lint": "pnpm -r lint",
+    "prebuild": "pnpm install --frozen-lockfile"
   }
 }

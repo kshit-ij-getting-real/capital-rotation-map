@@ -1,6 +1,7 @@
 import { Redis } from '@upstash/redis';
 
-const ttlPrice = 900;
+const ttlRaw = 900;
+const ttlSnapshot = 60 * 60 * 24;
 
 function client() {
   const url = process.env.UPSTASH_REDIS_REST_URL;
@@ -18,5 +19,11 @@ export async function getCache<T>(key: string): Promise<T | null> {
 export async function setPriceCache<T>(key: string, value: T): Promise<void> {
   const c = client();
   if (!c) return;
-  await c.set(key, value, { ex: ttlPrice });
+  await c.set(key, value, { ex: ttlRaw });
+}
+
+export async function setSnapshotCache<T>(key: string, value: T): Promise<void> {
+  const c = client();
+  if (!c) return;
+  await c.set(key, value, { ex: ttlSnapshot });
 }

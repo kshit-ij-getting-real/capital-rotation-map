@@ -1,7 +1,7 @@
 export type TreemapResponse = {
   app: 'global';
   updatedAt: string;
-  timeframe: '1D' | '1W' | '1M';
+  timeframe: '1D' | '1W' | '1M' | '3M' | 'YTD';
   legend: { min: number; max: number };
   nodes: Array<{
     id: string;
@@ -10,7 +10,7 @@ export type TreemapResponse = {
     group: string;
     bucket?: string;
     lastPrice: number;
-    returns: { '1D': number; '1W': number; '1M': number };
+    returns: { '1D': number; '1W': number; '1M': number; '3M': number; YTD: number };
     size: number;
     marketCap?: number;
     volume?: number;

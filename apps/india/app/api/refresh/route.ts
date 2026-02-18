@@ -1,4 +1,5 @@
-import { refreshIndiaRaw } from '@/lib/treemap-data';
+import { refreshIndiaSnapshot } from '@/lib/treemap-data';
+import { UniverseModeSchema } from '@/lib/types';
 import { NextRequest, NextResponse } from 'next/server';
 
 function isIndiaMarketHours(date = new Date()) {
@@ -6,7 +7,7 @@ function isIndiaMarketHours(date = new Date()) {
   const day = india.getDay();
   if (day === 0 || day === 6) return false;
   const mins = india.getHours() * 60 + india.getMinutes();
-  return mins >= 9 * 60 + 15 && mins <= 15 * 60 + 30;
+  return mins >= 9 * 60 && mins <= 15 * 60 + 45;
 }
 
 export async function GET(req: NextRequest) {
@@ -15,10 +16,20 @@ export async function GET(req: NextRequest) {
   }
 
   const force = req.nextUrl.searchParams.get('force') === '1';
-  if (!force && !isIndiaMarketHours()) {
+  const mode = UniverseModeSchema.safeParse(req.nextUrl.searchParams.get('mode') ?? 'etf').success
+    ? (req.nextUrl.searchParams.get('mode') as 'etf' | 'stock')
+    : 'etf';
+
+  const shouldSkip = !force && !isIndiaMarketHours() && req.nextUrl.searchParams.get('cadence') !== 'offhours';
+  if (shouldSkip) {
     return NextResponse.json({ ok: true, skipped: true, reason: 'outside_market_hours' });
   }
 
-  const data = await refreshIndiaRaw();
-  return NextResponse.json({ ok: true, count: data.length, updatedAt: new Date().toISOString() });
+  const modes: Array<'etf' | 'stock'> = mode === 'etf' ? ['etf', 'stock'] : [mode];
+  const snapshots = await Promise.all(modes.map((m) => refreshIndiaSnapshot(m)));
+  return NextResponse.json({
+    ok: true,
+    refreshed: snapshots.map((snapshot) => ({ mode: snapshot.mode, count: snapshot.nodes.length, delayed: snapshot.delayed })),
+    updatedAt: new Date().toISOString(),
+  });
 }

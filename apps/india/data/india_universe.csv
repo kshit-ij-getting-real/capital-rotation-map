@@ -1,0 +1,37 @@
+ticker,name,sector,weight
+RELIANCE.NS,Reliance Industries Ltd,Energy,1
+ONGC.NS,Oil and Natural Gas Corporation Ltd,Energy,1
+COALINDIA.NS,Coal India Ltd,Energy,1
+NTPC.NS,NTPC Ltd,Energy,1
+HDFCBANK.NS,HDFC Bank Ltd,Private Banks,1
+ICICIBANK.NS,ICICI Bank Ltd,Private Banks,1
+KOTAKBANK.NS,Kotak Mahindra Bank Ltd,Private Banks,1
+AXISBANK.NS,Axis Bank Ltd,Private Banks,1
+SBIN.NS,State Bank of India,PSU Banks,1
+PNB.NS,Punjab National Bank,PSU Banks,1
+INFY.NS,Infosys Ltd,IT,1
+TCS.NS,Tata Consultancy Services Ltd,IT,1
+HCLTECH.NS,HCL Technologies Ltd,IT,1
+WIPRO.NS,Wipro Ltd,IT,1
+SUNPHARMA.NS,Sun Pharmaceutical Industries Ltd,Pharma,1
+DRREDDY.NS,Dr Reddy's Laboratories Ltd,Pharma,1
+CIPLA.NS,Cipla Ltd,Healthcare,1
+DIVISLAB.NS,Divi's Laboratories Ltd,Healthcare,1
+ITC.NS,ITC Ltd,FMCG,1
+HINDUNILVR.NS,Hindustan Unilever Ltd,FMCG,1
+NESTLEIND.NS,Nestle India Ltd,FMCG,1
+MARUTI.NS,Maruti Suzuki India Ltd,Auto,1
+TATAMOTORS.NS,Tata Motors Ltd,EV & New Age Automotive,1
+M&M.NS,Mahindra and Mahindra Ltd,Auto,1
+BAJAJ-AUTO.NS,Bajaj Auto Ltd,Auto,1
+TATASTEEL.NS,Tata Steel Ltd,Metals,1
+HINDALCO.NS,Hindalco Industries Ltd,Metals,1
+JSWSTEEL.NS,JSW Steel Ltd,Metals,1
+LT.NS,Larsen and Toubro Ltd,Infra,1
+ADANIPORTS.NS,Adani Ports and Special Economic Zone Ltd,Infra,1
+ULTRACEMCO.NS,UltraTech Cement Ltd,Infra,1
+DLF.NS,DLF Ltd,Realty,1
+IRCTC.NS,Indian Railway Catering and Tourism Corporation Ltd,Tourism,1
+HAL.NS,Hindustan Aeronautics Ltd,Defence,1
+BEL.NS,Bharat Electronics Ltd,Defence,1
+TATAPOWER.NS,Tata Power Company Ltd,Energy,1
